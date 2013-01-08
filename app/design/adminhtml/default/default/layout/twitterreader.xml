@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>twitterreader/js/twitterreader.js</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="twitterreader/verify" template="twitterreader/verify.phtml" name="twitter_verify" />
+        </reference>
+    </adminhtml_system_config_edit>
+</layout>

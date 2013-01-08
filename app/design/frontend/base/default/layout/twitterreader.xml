@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/twitterreader.css</name>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="twitterreader/tweets" name="twitterreader_left_sidebar_top_container" before="-">
+                <block type="page/html" template="twitterreader/tweets.phtml" name="twitterreader_left_sidebar_top" />
+                <action method="verifyBlock"><config>left_sidebar_top</config><block>twitterreader_left_sidebar_top</block></action>
+            </block>
+            <block type="twitterreader/tweets" name="twitterreader_left_sidebar_bottom_container" after="-">
+                <block type="page/html" template="twitterreader/tweets.phtml" name="twitterreader_left_sidebar_bottom" />
+                <action method="verifyBlock"><config>left_sidebar_bottom</config><block>twitterreader_left_sidebar_bottom</block></action>
+            </block>
+        </reference>
+        <reference name="right">
+            <block type="twitterreader/tweets" name="twitterreader_right_sidebar_top_container" before="-">
+                <block type="page/html" template="twitterreader/tweets.phtml" name="twitterreader_right_sidebar_top" />
+                <action method="verifyBlock"><config>right_sidebar_top</config><block>twitterreader_right_sidebar_top</block></action>
+            </block>
+            <block type="twitterreader/tweets" name="twitterreader_right_sidebar_bottom_container" after="-">
+                <block type="page/html" template="twitterreader/tweets.phtml" name="twitterreader_right_sidebar_bottom" />
+                <action method="verifyBlock"><config>right_sidebar_bottom</config><block>twitterreader_right_sidebar_bottom</block></action>
+            </block>
+        </reference>
+        <reference name="footer">
+            <block type="twitterreader/tweets" name="twitterreader_footer_start_container" before="-">
+                <block type="page/html" template="twitterreader/tweets.phtml" name="twitterreader_footer_start" />
+                <action method="verifyBlock"><config>footer_start</config><block>twitterreader_footer_start</block></action>
+            </block>
+            <block type="twitterreader/tweets" name="twitterreader_right_sidebar_end_container" after="-">
+                <block type="page/html" template="twitterreader/tweets.phtml" name="twitterreader_footer_end" />
+                <action method="verifyBlock"><config>footer_end</config><block>twitterreader_footer_end</block></action>
+            </block>
+        </reference>
+        <reference name="root">
+            <block type="twitterreader/tweets" name="twitterreader_container" after="-">
+                <block type="page/html" template="twitterreader/tweets.phtml" name="twitterreader" />
+                <action method="verifyBlock"><config>custom</config><block>twitterreader</block></action>
+            </block>
+        </reference>
+    </default>
+</layout>

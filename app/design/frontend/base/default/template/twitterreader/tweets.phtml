@@ -1,0 +1,48 @@
+<?php if ($collection = Mage::helper('twitterreader')->collectFeedContent()): ?>
+    <?php $class = $this->getNameInLayout(); ?>
+    <?php if (strpos($class, 'footer')): ?>
+        <div class="<?php echo $this->getNameInLayout(); ?>">
+            <h3><?php echo $this->helper('twitterreader')->__('Recent Tweets'); ?></h3>
+            <div class="twitterreader_tweets">
+                <?php foreach ($collection as $tweet): ?>
+                    <span>
+                        <?php $screen = Mage::getStoreConfig('twitterreader/configuration/screen_name'); ?>
+                        <a href="https://twitter.com/<?php echo $screen; ?>/status/<?php echo $tweet->getTwitterId(); ?>" target="_blank">
+                            <?php echo $tweet->getContent(); ?>
+                        </a>
+                        <?php if (Mage::getStoreConfig('twitterreader/configuration/display_date')): ?>
+                            <?php echo Mage::helper('twitterreader')->displayDate($tweet->getTimestamp()); ?>
+                        <?php endif; ?>
+                    </span>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    <?php else: ?>
+        <div class="<?php echo $this->getNameInLayout(); ?>">
+            <div class="block">
+                <div class="block-title">
+                    <strong>
+                        <span>
+                            <?php echo $this->helper('twitterreader')->__('Recent Tweets'); ?>
+                        </span>
+                    </strong>
+                </div>
+                <div class="block-content">
+                <ol>
+                    <?php foreach ($collection as $tweet): ?>
+                        <li class="item">
+                            <?php $screen = Mage::getStoreConfig('twitterreader/configuration/screen_name'); ?>
+                            <a href="https://twitter.com/<?php echo $screen; ?>/status/<?php echo $tweet->getTwitterId(); ?>" target="_blank">
+                                <?php echo $tweet->getContent(); ?>
+                            </a>
+                            <?php if (Mage::getStoreConfig('twitterreader/configuration/display_date')): ?>
+                                <?php echo Mage::helper('twitterreader')->displayDate($tweet->getTimestamp()); ?>
+                            <?php endif; ?>
+                        <li>
+                    <?php endforeach; ?>
+                </ol>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <HusseyCoding_TwitterReader>
+            <active>true</active>
+            <codePool>community</codePool>
+        </HusseyCoding_TwitterReader>
+    </modules>
+</config>
