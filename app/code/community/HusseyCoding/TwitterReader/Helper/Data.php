@@ -107,6 +107,16 @@ class HusseyCoding_TwitterReader_Helper_Data extends Mage_Core_Helper_Abstract
         return $return ? ' - ' . $return : '';
     }
     
+    public function formatContent($content)
+    {
+        $length = (int) Mage::getStoreConfig('twitterreader/configuration/tweet_length');
+        if ($length && strlen($content) > $length):
+            $content = substr($content, 0, $length) . '...';
+        endif;
+        
+        return $content;
+    }
+    
     public function show()
     {
         if (Mage::getStoreConfig('twitterreader/position/custom')):

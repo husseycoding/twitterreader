@@ -33,7 +33,7 @@
                         <li class="item">
                             <?php $screen = Mage::getStoreConfig('twitterreader/configuration/screen_name'); ?>
                             <a href="https://twitter.com/<?php echo $screen; ?>/status/<?php echo $tweet->getTwitterId(); ?>" target="_blank">
-                                <?php echo $tweet->getContent(); ?>
+                                <?php echo Mage::helper('twitterreader')->formatContent($tweet->getContent()); ?>
                             </a>
                             <?php if (Mage::getStoreConfig('twitterreader/configuration/display_date')): ?>
                                 <?php echo Mage::helper('twitterreader')->displayDate($tweet->getTimestamp()); ?>
