@@ -1,7 +1,7 @@
 var twitterverify = Class.create({
     afterInit: function() {
         $("row_twitterreader_configuration_callback_url").down("td.value").insert({ top: "<span id=\"twitterreader_apistatus\"></span>" });
-        this.showStatus()
+        this.showStatus();
     },
     showStatus: function() {
         var el = $("twitterreader_apistatus");
@@ -20,8 +20,9 @@ var twitterverify = Class.create({
             $("row_twitterreader_configuration_request_token").down("td.value").insert({ top: "<span>Obtained</span>" });
             $("row_twitterreader_configuration_access_token").down("td.value").insert({ top: "<span>Required</span>" });
         } else if (this.status == "ready") {
-            el.update("Verified and ready<br />Reset your credentials <a id=\"twitterreader_readyreset\" href=\"javascript:void(null)\">here</a>")
+            el.update("Verified and ready<br />Reset your credentials <a id=\"twitterreader_readyreset\" href=\"javascript:void(null)\">here</a><br />Tweets updated via cron, update manually <a id=\"twitterreader_readyupdate\" href=\"javascript:void(null)\">here</a>")
             this.resetListener();
+            this.updateListener();
             $("row_twitterreader_configuration_request_token").down("td.value").insert({ top: "<span>Not required</span>" });
             $("row_twitterreader_configuration_access_token").down("td.value").insert({ top: "<span>Obtained</span>" });
         } else if (this.status == "bad_verify") {
@@ -45,6 +46,11 @@ var twitterverify = Class.create({
             if (confirm("Are you sure?")) {
                 window.location = this.reseturl;
             }
+        }.bind(this));
+    },
+    updateListener: function() {
+        $("twitterreader_readyupdate").observe("click", function(e) {
+            window.location = this.updateurl;
         }.bind(this));
     }
 });

@@ -5,6 +5,7 @@
             thistwitterverify.status = "<?php echo $status; ?>";
         <?php if ($status == 'ready'): ?>
             thistwitterverify.reseturl = "<?php echo Mage::helper('adminhtml')->getUrl('twitterreader/callback/reset'); ?>";
+            thistwitterverify.updateurl = "<?php echo Mage::helper('adminhtml')->getUrl('twitterreader/callback/update'); ?>";
         <?php elseif ($status == 'verify_credentials'): ?>
             thistwitterverify.callbackurl = "<?php echo Mage::getStoreConfig('twitterreader/configuration/callback_url'); ?>";
             thistwitterverify.reseturl = "<?php echo Mage::helper('adminhtml')->getUrl('twitterreader/callback/reset'); ?>";

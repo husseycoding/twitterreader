@@ -15,7 +15,7 @@ class HusseyCoding_TwitterReader_Block_Verify extends Mage_Page_Block_Html
             elseif (!$request && !$access):
                     $config = array(
                         'callbackUrl' => Mage::helper('adminhtml')->getUrl('twitterreader/callback/access'),
-                        'siteUrl' => 'http://twitter.com/oauth',
+                        'siteUrl' => 'https://api.twitter.com/oauth',
                         'consumerKey' => $key,
                         'consumerSecret' => $secret
                     );
@@ -37,7 +37,7 @@ class HusseyCoding_TwitterReader_Block_Verify extends Mage_Page_Block_Html
             else:
                 $config = array(
                     'callbackUrl' => Mage::helper('adminhtml')->getUrl('twitterreader/callback/access'),
-                    'siteUrl' => 'http://twitter.com/oauth',
+                    'siteUrl' => 'https://api.twitter.com/oauth',
                     'consumerKey' => $key,
                     'consumerSecret' => $secret
                 );

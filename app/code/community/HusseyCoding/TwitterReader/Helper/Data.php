@@ -101,7 +101,7 @@ class HusseyCoding_TwitterReader_Helper_Data extends Mage_Core_Helper_Abstract
     {
         $timestamp = strtotime($timestamp);
         $format = Mage::getStoreConfig('twitterreader/configuration/date_format');
-        $format = $format ? $format : 'D j';
+        $format = $format ? $format : 'D jS M';
         $return = date($format, $timestamp);
         
         return $return ? ' - ' . $return : '';

@@ -46,7 +46,7 @@ class HusseyCoding_TwitterReader_Model_Manage
 
         $config = array(
             'callbackUrl' => Mage::helper('adminhtml')->getUrl('twitterreader/callback/access'),
-            'siteUrl' => 'http://twitter.com/oauth',
+            'siteUrl' => 'https://api.twitter.com/oauth',
             'consumerKey' => $key,
             'consumerSecret' => $secret
         );
