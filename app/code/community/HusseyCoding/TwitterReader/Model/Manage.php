@@ -68,14 +68,14 @@ class HusseyCoding_TwitterReader_Model_Manage
 
                 $status = Zend_Json::decode($response->getBody());
 
-                if ($status['errors']) return false;
+                if (isset($status['errors'])) return false;
                 
                 $userlimit = $limit['resources']['statuses']['/statuses/user_timeline'];
                 if ($userlimit['remaining'] >= $this->findRequestCount($stores, $storecount)):
                     $screencontent = array();
                     $storecontent = array();
                     foreach ($stores as $store => $screenname):
-                        $screenstore = $screencontent[$screenname];
+                        $screenstore = isset($screencontent[$screenname]) ? $screencontent[$screenname] : false;
                         if ($screenstore && $storecount[$store] <= $storecount[$screenstore]):
                             $storecontent[$store] = $storecontent[$screenstore];
                         else:
@@ -110,7 +110,7 @@ class HusseyCoding_TwitterReader_Model_Manage
         $screencontent = array();
         $return = 0;
         foreach ($stores as $store => $screenname):
-            $screenstore = $screencontent[$screenname];
+            $screenstore = isset($screencontent[$screenname]) ? $screencontent[$screenname] : false;
             if ($screenstore && $storecount[$store] <= $storecount[$screenstore]):
                 $return++;
             else:
