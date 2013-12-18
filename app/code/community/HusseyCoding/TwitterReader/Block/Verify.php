@@ -61,7 +61,7 @@ class HusseyCoding_TwitterReader_Block_Verify extends Mage_Page_Block_Html
 
                             $status = Zend_Json::decode($response->getBody());
 
-                            if ($status['errors']):
+                            if (isset($status['errors'])):
                                 return 'bad_verify';
                             endif;
                         elseif ($limit):
