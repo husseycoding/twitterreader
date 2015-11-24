@@ -1,10 +1,10 @@
 <?php
-class HusseyCoding_TwitterReader_CallbackController extends Mage_Adminhtml_Controller_Action
+class HusseyCoding_TwitterReader_TwitterReader_CallbackController extends Mage_Adminhtml_Controller_Action
 {   
     public function accessAction() 
     {
         $config = array(
-            'callbackUrl' => Mage::helper('adminhtml')->getUrl('twitterreader/callback/access'),
+            'callbackUrl' => Mage::helper('adminhtml')->getUrl('adminhtml/twitterReader_callback/access'),
             'siteUrl' => 'https://api.twitter.com/oauth',
             'consumerKey' => Mage::getStoreConfig('twitterreader/configuration/consumer_key'),
             'consumerSecret' => Mage::getStoreConfig('twitterreader/configuration/consumer_secret')

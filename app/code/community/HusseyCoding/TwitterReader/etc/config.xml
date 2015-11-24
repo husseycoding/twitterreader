@@ -2,7 +2,7 @@
 <config>
     <modules>
         <HusseyCoding_TwitterReader>
-            <version>1.0.5</version>
+            <version>1.0.6</version>
         </HusseyCoding_TwitterReader>
     </modules>
     <global>
@@ -68,13 +68,13 @@
     </frontend>
     <admin>
         <routers>
-            <twitterreader>
-                <use>admin</use>
+            <adminhtml>
                 <args>
-                    <module>HusseyCoding_TwitterReader</module>
-                    <frontName>twitterreader</frontName>
+                    <modules>
+                        <HusseyCoding_TwitterReader after="Mage_Adminhtml">HusseyCoding_TwitterReader</HusseyCoding_TwitterReader>
+                    </modules>
                 </args>
-            </twitterreader>
+            </adminhtml>
         </routers>
     </admin>
     <adminhtml>
